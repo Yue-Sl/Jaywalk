@@ -1,0 +1,13 @@
+# Godot 缓存
+.godot/
+
+# 导出产物
+game/
+export/
+build/
+
+# Visual Studio
+.vs/
+
+# 生成的翻译
+*.translation

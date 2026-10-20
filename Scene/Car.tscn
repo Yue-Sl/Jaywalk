@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5ch5tew5oro"]
+
+[ext_resource type="Script" uid="uid://b7sme2hic45jq" path="res://Scene/Car.cs" id="1_jvosb"]
+[ext_resource type="Texture2D" uid="uid://dwfhmokkm3qs2" path="res://课程素材/graphics/cars/yellow.png" id="2_o44ml"]
+[ext_resource type="Texture2D" uid="uid://t73pnmtiuub7" path="res://课程素材/graphics/cars/red.png" id="3_bjvyw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in2m2"]
+size = Vector2(24, 12)
+
+[node name="Car" type="Area2D" unique_id=1220835527]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_jvosb")
+cars = Array[Texture2D]([ExtResource("3_bjvyw"), ExtResource("2_o44ml")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817362547]
+texture = ExtResource("2_o44ml")
+offset = Vector2(0, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1497522795]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_in2m2")

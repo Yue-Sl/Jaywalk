@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://scpsvcj7shj4"]
+
+[ext_resource type="Script" uid="uid://di4j45j21otpa" path="res://Scene/Title.cs" id="1_2n577"]
+[ext_resource type="FontFile" uid="uid://c3gl2hd5yijdq" path="res://课程素材/fonts/Crackman.otf" id="1_r8pmb"]
+[ext_resource type="Texture2D" uid="uid://co56epl7oxkjh" path="res://课程素材/graphics/player/player_simple.png" id="2_m405t"]
+[ext_resource type="FontFile" uid="uid://c8lbdqrawyvmg" path="res://课程素材/fonts/Better VCR 9.0.1.ttf" id="3_5ktd1"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_in2m2"]
+allow_unpress = true
+
+[node name="Title" type="Control" unique_id=789448592]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2n577")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1536896220]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18443504, 0.35553303, 0.3889923, 1)
+
+[node name="Label" type="Label" parent="." unique_id=968806694]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -72.5
+offset_right = 269.5
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_r8pmb")
+theme_override_font_sizes/font_size = 140
+text = "Jaywalk"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1301666525]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_m405t")
+
+[node name="score" type="Label" parent="." unique_id=1098283393]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 200.0
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_5ktd1")
+text = "Best score: 100"
+
+[node name="Label2" type="Label" parent="." unique_id=214879063]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 250.0
+offset_right = 72.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "（按空格开始游戏）"
+
+[node name="Button1" type="Button" parent="." unique_id=1377866423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = 185.0
+offset_right = -140.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_in2m2")
+text = "简单"
+
+[node name="Button2" type="Button" parent="." unique_id=961349060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 185.0
+offset_right = 40.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_in2m2")
+text = "普通"
+
+[node name="Button3" type="Button" parent="." unique_id=1864415251]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = 185.0
+offset_right = 220.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_in2m2")
+text = "困难"
+
+[connection signal="pressed" from="Button1" to="." method="On_button1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="On_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="On_button_3_pressed"]

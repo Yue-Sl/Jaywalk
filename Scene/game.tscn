@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://vs5mh8eotj6p"]
+
+[ext_resource type="Script" uid="uid://cj84slvqx0coo" path="res://Scene/Game.cs" id="1_03iqk"]
+[ext_resource type="Texture2D" uid="uid://ceylhjtqgbeqn" path="res://课程素材/graphics/map.png" id="1_4jv7b"]
+[ext_resource type="PackedScene" uid="uid://b0uuqxcv4c7jy" path="res://Scene/player.tscn" id="2_03iqk"]
+[ext_resource type="PackedScene" uid="uid://bnuecfagpw35j" path="res://Scene/environment.tscn" id="3_ihreq"]
+[ext_resource type="FontFile" uid="uid://c8lbdqrawyvmg" path="res://课程素材/fonts/Better VCR 9.0.1.ttf" id="5_ihreq"]
+
+[node name="Game" type="Node2D" unique_id=1832633461 node_paths=PackedStringArray("root", "carStartPosition", "label")]
+script = ExtResource("1_03iqk")
+root = NodePath("root")
+carStartPosition = NodePath("CarStartPosition")
+label = NodePath("CanvasLayer/score")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=1375829509]
+texture = ExtResource("1_4jv7b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1856661237]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=343112518]
+position = Vector2(35, -19)
+polygon = PackedVector2Array(-116, -148, -116, -117, 41, -117, 41, -148)
+
+[node name="Timer" type="Node" parent="." unique_id=2003735502]
+
+[node name="CarTimer" type="Timer" parent="Timer" unique_id=1642834822]
+wait_time = 0.5
+autostart = true
+
+[node name="GameTimer" type="Timer" parent="Timer" unique_id=440495520]
+autostart = true
+
+[node name="root" type="Node2D" parent="." unique_id=137710275]
+y_sort_enabled = true
+
+[node name="Player" parent="root" unique_id=665939668 instance=ExtResource("2_03iqk")]
+position = Vector2(-104, 193)
+
+[node name="Environment" parent="root" unique_id=1253019012 instance=ExtResource("3_ihreq")]
+y_sort_enabled = true
+
+[node name="CarStartPosition" type="Node2D" parent="." unique_id=1878724606]
+
+[node name="Marker2D" type="Marker2D" parent="CarStartPosition" unique_id=2126616544]
+position = Vector2(-199, -87)
+
+[node name="Marker2D6" type="Marker2D" parent="CarStartPosition" unique_id=871507704]
+position = Vector2(-199, -10)
+
+[node name="Marker2D7" type="Marker2D" parent="CarStartPosition" unique_id=1622727675]
+position = Vector2(-199, -24)
+
+[node name="Marker2D3" type="Marker2D" parent="CarStartPosition" unique_id=1523478893]
+position = Vector2(199, -45)
+
+[node name="Marker2D5" type="Marker2D" parent="CarStartPosition" unique_id=1940942005]
+position = Vector2(199, 10)
+
+[node name="Marker2D8" type="Marker2D" parent="CarStartPosition" unique_id=1277815083]
+position = Vector2(199, 100)
+
+[node name="Marker2D9" type="Marker2D" parent="CarStartPosition" unique_id=1458275487]
+position = Vector2(199, 147)
+
+[node name="Marker2D10" type="Marker2D" parent="CarStartPosition" unique_id=1477467602]
+position = Vector2(-199, 169)
+
+[node name="Marker2D11" type="Marker2D" parent="CarStartPosition" unique_id=2143408712]
+position = Vector2(-199, 121)
+
+[node name="Marker2D4" type="Marker2D" parent="CarStartPosition" unique_id=1169703014]
+position = Vector2(199, -109)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=353711541]
+
+[node name="score" type="Label" parent="CanvasLayer" unique_id=133985963]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_top = 20.0
+offset_right = 40.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_ihreq")
+theme_override_font_sizes/font_size = 22
+text = "score:0"
+
+[connection signal="body_entered" from="Area2D" to="." method="On_area_2d_body_entered"]
+[connection signal="timeout" from="Timer/CarTimer" to="." method="On_car_timer_timeout"]
+[connection signal="timeout" from="Timer/GameTimer" to="." method="On_game_timer_timeout"]
